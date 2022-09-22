@@ -1,0 +1,208 @@
+\def\mytitle{ASSIGNMENT-3}
+\def\mykeywords{}
+\def\myauthor{T. SAI RAGHAVENDRA}
+\def\contact{sairaghavendra1143@gmail.com}
+\def\mymodule{IITH - Future Wireless Communication(FWC22087)}
+% #######################################
+% #### YOU DON'T NEED TO TOUCH BELOW ####
+% #######################################
+\documentclass[10pt, a4paper]{article}
+\usepackage[a4paper,outer=1.5cm,inner=1.5cm,top=1.75cm,bottom=1.5cm]{geometry}
+\twocolumn
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+%colour our links, remove weird boxes
+\usepackage[colorlinks,linkcolor={black},citecolor={blue!80!black},urlcolor={blue!80!black}]{hyperref}
+%Stop indentation on new paragraphs
+\usepackage[parfill]{parskip}
+%% Arial-like font
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault}
+%Napier logo top right
+\usepackage{watermark}
+%Lorem Ipusm dolor please don't leave any in you final report ;)
+\usepackage{karnaugh-map}
+\usepackage{tabularx}
+\usepackage{tikz}
+%\documentclass[tikz, border=2mm]{standalone}
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumerate}
+%give us the Capital H that we all know and love
+\usepackage{float}
+%tone down the line spacing after section titles
+\usepackage{titlesec}
+%Cool maths printing
+\usepackage{amsmath}
+%PseudoCode
+\usepackage{algorithm2e}
+\usepackage{circuitikz}
+\usetikzlibrary{calc}
+
+\titlespacing{\subsection}{0pt}{\parskip}{-3pt}
+\titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
+\titlespacing{\paragraph}{0pt}{\parskip}{\parskip}
+\newcommand{\figuremacro}[5]{
+    \begin{figure}[#1]
+        \centering
+        \includegraphics[width=#5\columnwidth]{#2}
+        \caption[#3]{\textbf{#3}#4}
+        \label{fig:#2}
+    \end{figure}
+}
+
+\lstset{
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+
+\thiswatermark{\centering \put(1, -110.0){\includegraphics[scale=0.055]{logo}}
+\put(450,-110){\includegraphics[scale=0.3]{nrc}} }
+
+
+\title{\mytitle}
+\author{\myauthor\hspace{1em}\\\contact\\\hspace{0.5em}\hspace{0.5em}\mymodule}
+\date{}
+\hypersetup{pdfauthor=\myauthor,pdftitle=\mytitle,pdfkeywords=\mykeywords}
+\sloppy
+
+% #######################################
+% ########### START FROM HERE ###########
+% #######################################
+\begin{document}
+   
+  \maketitle
+  \tableofcontents
+  \begin{abstract}
+     A combinational circuit has three inputs A, B and C and an output F.F. is true only for the following input combinations? 
+A is false and B is true \\
+A is false and C is true \\
+A, B and C are all false \\
+A, B and C are all true \\
+(1) Write the truth table for F. use the convention, true = 1 and false = 0. \\
+(2) Write the simplified expression for F as a Sum of Products.\\ 
+(3) Write the simplified expression for F as a product of Sums.\\
+\end{abstract}
+
+\section{COMPONENTS}
+\begin{tabularx}{0.45\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X
+  | >{\centering\arraybackslash}X | }
+\hline
+\textbf{Component} & \textbf{Value} & \textbf{Quantity} \\      
+\hline
+Arduino & UNO & 1 \\
+Led & - & 1\\
+Breadboard & - & 1\\
+Jumper Wires & - & 7\\
+\hline
+\end{tabularx}
+\begin{center}
+    TABLE 1.0
+\end{center}
+\subsection{Arduino}
+  \hspace{10cm}
+  
+  The Arduino UNO has some ground pins, analog input pins A0-A3 and digital pins D1-D13 that can be used for both input as well as output. It also has two power pins that can generate 3.3V and 5V.In the following exercises, only the GND, 5V and digital pins will be used.
+  \section{IMPLEMENTATION}
+  \hspace{1cm}
+    \subsection{Truth table}
+    \hspace{1cm}
+        \begin{center}
+\begin{tabularx}{0.4\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X
+  | >{\centering\arraybackslash}X | }
+\hline
+\textbf{C} &\textbf{B} & \textbf{A} & \textbf{F} \\
+\hline
+0 & 0 & 0 & 1 \\  
+\hline
+0 & 0 & 1 & 1 \\ 
+\hline
+0 & 1 & 0 & 1 \\
+\hline
+0 & 1 & 1 & 1 \\
+\hline
+1 & 0 & 0 & 0 \\  
+\hline
+1 & 0 & 1 & 0 \\ 
+\hline
+1 & 1 & 0 & 0 \\
+\hline
+1 & 1 & 1 & 1 \\
+\hline
+\end{tabularx}
+\end{center}
+\begin{center}
+    TABLE 2.0
+\end{center}
+    
+  \subsection{Karnaugh Map}
+  \hspace{1cm}
+  \subsubsection{Sum of products}
+    \hspace{10cm}
+    
+      \begin{center}
+     \begin{karnaugh-map}[4][2][1][$BA$][$C$]
+        \minterms{0,1,2,3,7}
+        \maxterms{4,5,6}
+        \implicant{0}{2}
+        \implicant{3}{7}
+    \end{karnaugh-map} \\
+ \centering  F = C'+AB
+    \end{center}
+     \begin{center}
+        fig 2.1
+        \end{center}
+    
+  \subsubsection{Products of sum}
+    \begin{center}
+    \begin{karnaugh-map}[4][2][1][$BA$][$C$]
+    
+        \minterms{0,1,2,3,7}
+        \maxterms{4,5,6}
+        \implicant{4}{5}
+        \implicantedge{4}{4}{6}{6}
+    \end{karnaugh-map}\\
+    \centering F = (B+C')(C'+A)
+    \end{center}
+    \begin{center}
+        fig 2.2
+    \end{center}
+    
+
+    \centering Above K-maps are verified using TABLE 2.0\\
+    
+    \section{LOGICCIRCUIT}
+        \begin{circuitikz} \draw
+ (0,2) node[nand port] (mynand1) {}
+ (2,2) node[nand port] (mynand2) {}
+ (mynand1.out) -- (mynand2.in 1);
+ \node[left] at (mynand1.in 1) {\(A\)};
+ \node[left] at (mynand1.in 2) {\(B\)};
+ \node[left] at (mynand2.in 2) {\(C\)};
+ \node[right] at (mynand2.out) {\(F\)};    
+\end{circuitikz}\\
+\hspace{10cm}
+\centering F =(A'B'C)'
+\begin{center}
+fig 3.0
+\end{center}
+  \section{HARDWARE}
+  \begin{enumerate}[1.]
+\item Connect the Arduino to the computer.
+\item Download the following directory.
+\begin{lstlisting}
+https://github.com/Sairaghavendra36/Fwc-2022/blob/main/assgn3_avr/avr/method1/main.c
+\end{lstlisting}
+%\item Now select Tools $\to$ Port $\to$ /dev/ttyACM0
+
+\end{enumerate}
+
+\bibliographystyle{ieeetr}
+\end{document}
