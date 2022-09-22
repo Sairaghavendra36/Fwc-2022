@@ -1,9 +1,0 @@
-\contentsline {section}{\numberline {1}COMPONENTS}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Arduino}{1}{subsection.1.1}%
-\contentsline {section}{\numberline {2}IMPLEMENTATION}{1}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Truth table}{1}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Karnaugh Map}{1}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Sum of products}{1}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Products of sum}{1}{subsubsection.2.2.2}%
-\contentsline {section}{\numberline {3}LOGICCIRCUIT}{2}{section.3}%
-\contentsline {section}{\numberline {4}HARDWARE}{2}{section.4}%
