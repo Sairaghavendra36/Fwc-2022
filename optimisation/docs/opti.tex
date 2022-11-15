@@ -1,0 +1,147 @@
+\documentclass[10pt,a4paper]{report}
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{ragged2e}
+\usepackage{graphicx}
+\usepackage{fixltx2e}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    }
+\usepackage{tabularx}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,automata,petri,positioning,calc}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{matrix,calc}
+\usepackage[margin=0.5in]{geometry}
+% ---- power functions -----% 
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\let\vec\mathbf
+
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\let\vec\mathbf
+
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+%-------end power functions----%
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+\begin{document}
+\begin{figure*}[!tbp]
+  \centering
+  \begin{minipage}[b]{0.4\textwidth}
+%   \includegraphics[scale=0.05]{logo.jpg} 
+  \end{minipage}
+  \hfill
+  \vspace{5mm}\begin{minipage}[b]{0.4\textwidth}
+%\raggedleft \includegraphics[scale=0.6]{nrc.jpeg} 
+  \end{minipage}\vspace{0.2cm}
+\end{figure*}
+\raggedright \textbf{Name}:\hspace{1mm} T. Sai Raghavendra\hspace{3cm} \Large \textbf{Optimization}\hspace{2.5cm} % 
+\normalsize \textbf{Roll No.} :\hspace{1mm} FWC22087\vspace{1cm}
+\begin{multicols}{2}
+\textbf{Problem Statement:}\vspace{2mm}
+\justify Let f(x) = $sin^3 x+\lambda sin^2 x, \frac{-\pi}{2} < x < \frac{\pi}{2} $. Find the intervals in which $\lambda$ should lie in order that f(x) has exactly one minimum and exactly one maximum.
+\\
+\\
+\vspace{4mm}
+\textbf{Solution:}
+\\
+Given function is ,
+	\begin{align}
+	\label{eq:one}
+	f(x)= sin^3 x+\lambda sin^2 x
+	\end{align}
+	\textbf{Theoritical proof:}
+\vspace{4mm}
+\\
+Let y=f(x)=$sin^3 x+\lambda sin^2 x, \frac{-\pi}{2} < x < \frac{\pi}{2} $\\ \\
+Let $sinx=t$
+    \begin{equation}
+	 \frac{dy}{dt}=3t^2+2t\lambda=t(3t+2\lambda)
+	 \end{equation}
+	 for exactly one minima and exactly one maxima  $\frac{dy}{dx} $ must have two distinct roots $\in$ (-1,1) \\ \\
+	 \hspace*{2.2cm}$t=0$ and $t=\frac{-2\lambda}{3}\in (-1,1)$\\
+	 \begin{align}
+	 -1<\frac{-2\lambda}{3}<1\\
+	 \frac{-3}{2}<\lambda<\frac{3}{2}\\
+	 \lambda\in (\frac{-3}{2},\frac{3}{2})
+	 \end{align}
+	\textbf{Objective function:}
+	\begin{align}
+	\min_xf(x)= sin^3 x+\lambda sin^2 x, \frac{-\pi}{2} < x < \frac{\pi}{2} \\
+	\max_xf(x)= sin^3 x+\lambda sin^2 x, \frac{-\pi}{2} < x < \frac{\pi}{2} 
+        \end{align}
+	\textbf{constraints:}\\
+	\begin{align}
+		x \in \{ \frac{-\pi}{2}, \frac{\pi}{2}\} 
+	\end{align}
+\textbf{Calculation of Minima using gradient descent algorithm:}
+\justify{Minima of the above \eqref{eq:one}, can be calculated from the following expression,}
+Differentiating \eqref{eq:ten} yields,
+\begin{align}
+       \boxed{x_{n+1} = x_n - \alpha \nabla h(x_n)} 
+\end{align}
+\begin{align}
+\label{eq:ten}
+f(x)= sin^3 x+\lambda sin^2 x \\ 
+\nabla f(x) = sinx cosx (3sinx+2\lambda)
+\end{align}
+\vspace{1mm}
+Taking $x_0=\frac{-\pi}{2},\alpha=0.0001$ and precision = 0.000000001, values obtained using python are:
+    \begin{align}
+        \boxed{\text{Minima} =-2.5}\\     
+        \boxed{\text{Minima Point} = -1.5708}
+    \end{align}
+   
+\textbf{Calculation of Maxima using gradient ascent algorithm:}
+\justify{Maxima of the above \eqref{eq:one}, can be calculated from the following expression,}
+Differentiating \eqref{eq:fifteen} yields,
+\begin{align}
+       \boxed{x_{n+1} = x_n - \alpha \nabla h(x_n)} 
+\end{align}
+\begin{align}
+\label{eq:fifteen}
+f(x)= sin^3 x+\lambda sin^2 x \\ 
+\nabla f(x) = sinx cosx (3sinx+2\lambda)
+\end{align}
+\vspace{1mm}
+Taking $x_0=\frac{\pi}{2},\alpha=0.0001$ and precision = 0.000000001, values obtained using python are:
+    \begin{align}
+        \boxed{\text{Maxima} =2.5}\\     
+        \boxed{\text{Maxima Point} = 1.5707}
+    \end{align}
+\vspace{2mm} 
+\\
+\raggedright $\vec{Plots:}$ \\
+\includegraphics[width=\columnwidth]{fig.jpg}
+\label{fig:Figure}
+\includegraphics[width=\columnwidth]{fig1.jpg}
+\label{fig:Figure}
+\textbf{Conclusion:}\\
+1. At first, the given function has been differentiated to find h'(x).
+\\
+2. Later, the given function h(x) is solved by gradient   \\descent algorithm to find minima and the point at which h(x) is minimum.
+Download the code to execute the above problem statement.
+\vspace{4mm}
+\\
+\boxed{\href{https://github.com/Sairaghavendra36/Fwc-2022}{https://github.com/Sairaghavendra36/Fwc-2022}.}
+\end{multicols}
+\end{document}
+
