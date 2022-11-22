@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {I}\textbf {Problem Statement}}{1}%
+\contentsline {section}{\numberline {II}\textbf {Solution}}{1}%
+\contentsline {subsection}{\numberline {\mbox {II-A}}Calculation of Minima using gradient descent algorithm:}{1}%
+\contentsline {subsection}{\numberline {\mbox {II-B}}Calculation of Maxima using gradient ascent algorithm:}{1}%
+\contentsline {section}{\numberline {III}\textbf {Plots}}{1}%
+\contentsline {section}{\numberline {IV}\textbf {Software}}{1}%
